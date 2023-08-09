@@ -67,7 +67,7 @@ def get_response():
             most_similar_question = get_most_similar_question(user_input)
             response = qa_pairs[most_similar_question]
             if most_similar_question.lower() != user_input.lower():
-                response += f" (Did you mean: '{most_similar_question}')"
+                response += " (Did you mean: '{}')".format(most_similar_question)
     
     return jsonify({'response': response})
 
