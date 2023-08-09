@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        #chat-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 20px auto;
+            width: 60%;
+            background-color: #fff;
+        }
+        p {
+            margin: 5px;
+        }
+        input[type="text"] {
+            width: 80%;
+            padding: 8px;
+            font-size: 16px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chatbot</h1>
+    
+    <input type="text" id="user-input" placeholder="Welcome to the chatbot. Please provide your role (e.g., Doctor, Nurse, Health Care Assistant).">
+    <button id="submit-btn">Submit</button>
+    
+    <div id="chat-container"><p style="text-align:center";>Chat History</p></div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#submit-btn").click(function() {
+                var user_input = $("#user-input").val();
+                $("#chat-container").append("<p>User: " + user_input + "</p>");
+                $("#user-input").val("");
+
+                $.post("/get_response", { user_input: user_input }, function(data) {
+                    var response = data.response;
+                    $("#chat-container").append("<p>Trinity: " + response + "</p>");
+                });
+            });
+        });
+    </script>
+</body>
+</html>
