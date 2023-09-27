@@ -1,0 +1,9 @@
+Nexus Nova is a digital transformation consultancy company specialising in training, eLearning and 
+floorwalking within the NHS and wider healthcare sector.
+
+We have an innovative approach to both training and support for EPR implementations. 
+Our bespokely designed applications focus on the front-end users of the new systems. 
+Ensuring effective knowledge transfer and safe, efficient adoption.
+
+Owner: Nexus Nova
+Function: to help the users with their queries based on the given context
